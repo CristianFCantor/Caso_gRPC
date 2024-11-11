@@ -1,5 +1,7 @@
+package com.uptc.frw.grpc.jpa.models;
 import jakarta.persistence.*;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -19,13 +21,21 @@ public class Implicado {
     @Column(name = "CALIDAD")
     private String calidad;
 
-    // Relación con NoticiaImplicado (muchos a muchos a través de tabla intermedia)
-    @OneToMany(mappedBy = "implicado")
-    private Set<NoticiaImplicado> noticias;
+    // Relación con Noticias(muchos a muchos a través de tabla intermedia)
+    @ManyToMany
+    @JoinTable(
+            name = "NOTICIA_IMPLICADO",
+             joinColumns = @JoinColumn(name = "ID_I"),
+            inverseJoinColumns = @JoinColumn(name = "ID_N")
+    )
+    private List <Noticia> noticias;
 
-    // Relación con PeriodistaImplicados (muchos a muchos a través de tabla intermedia)
-    @OneToMany(mappedBy = "implicado")
-    private Set<PeriodistaImplicados> periodistas;
-
+    @ManyToMany
+    @JoinTable(
+            name = "PERIODISTA_IMPLICADOS",
+            joinColumns = @JoinColumn(name = "ID_I"),
+            inverseJoinColumns = @JoinColumn(name = "ID_P")
+    )
+    private List <Periodista> periodistas;
 }
 

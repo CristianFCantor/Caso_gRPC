@@ -1,5 +1,7 @@
 package com.uptc.frw.grpc.jpa.models;
 import jakarta.persistence.*;
+
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -20,12 +22,16 @@ public class Periodista {
     private long telefono;
 
     // Relación con Periodista_noticia (muchos a muchos a través de tabla intermedia)
-    @OneToMany(mappedBy = "periodista")
-    private Set<PeriodistaNoticia> noticias;
-
-    // Relación con Periodista_Implicados (muchos a muchos a través de tabla intermedia)
-    @OneToMany(mappedBy = "periodista")
-    private Set<PeriodistaImplicado> implicados;
+    @ManyToMany
+    @JoinTable(
+            name = "PERIODISTA_NOTICIA",
+            joinColumns = @JoinColumn(name = "ID_P"),
+            inverseJoinColumns = @JoinColumn(name = "ID_N")
+    )
+    private List<Noticia> noticias;
+    // Relación con Implicados (muchos a muchos a través de tabla intermedia)
+    @ManyToMany(mappedBy = "periodistas")
+    private List<Implicado> implicados;
 
 
 }

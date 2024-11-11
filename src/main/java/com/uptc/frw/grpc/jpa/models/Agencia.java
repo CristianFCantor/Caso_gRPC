@@ -1,10 +1,8 @@
 package com.uptc.frw.grpc.jpa.models;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
-public class Agencia {
+import java.util.List;
+
     @Entity
     @Table(name = "AGENCIAS")
     public class Agencia {
@@ -20,11 +18,15 @@ public class Agencia {
         private int anioCreacion;
 
         // Relación con Noticia_Agencia (OneToMany)
-        @OneToMany(mappedBy = "agencia", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-        private List<NoticiaAgencia> noticias;
+        @ManyToMany
+        @JoinTable(
+                name = "NOTICIA_AGENCIA",
+                joinColumns = @JoinColumn(name = "ID_A") ,
+                inverseJoinColumns = @JoinColumn(name = "ID_N")
+        )
+        private List<Noticia> noticias;
 
 
 
     }
 
-}

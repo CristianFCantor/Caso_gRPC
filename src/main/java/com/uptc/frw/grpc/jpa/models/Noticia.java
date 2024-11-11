@@ -1,6 +1,7 @@
 package com.uptc.frw.grpc.jpa.models;
 import jakarta.persistence.*;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -24,15 +25,15 @@ public class Noticia {
     private String texto;
 
     // Relación con PeriodistaNoticia (muchos a muchos a través de tabla intermedia)
-    @OneToMany(mappedBy = "noticia")
-    private Set<PeriodistaNoticia> periodistas;
+    @ManyToMany(mappedBy = "noticia")
+    private List<Periodista> periodistas;
 
     // Relación con NoticiaImplicado (muchos a muchos a través de tabla intermedia)
-    @OneToMany(mappedBy = "noticia")
-    private Set<NoticiaImplicado> implicados;
+    @ManyToMany(mappedBy = "noticia")
+    private List<Implicado> implicados;
 
     // Relación con NoticiaAgencia (muchos a muchos a través de tabla intermedia)
-    @OneToMany(mappedBy = "noticia")
-    private Set<NoticiaAgencia> agencias;
+    @ManyToMany(mappedBy = "noticia")
+    private List<Agencia> agencias;
 
 }
