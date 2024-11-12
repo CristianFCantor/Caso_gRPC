@@ -26,7 +26,48 @@ import java.util.List;
         )
         private List<Noticia> noticias;
 
+        public Agencia() {
+        }
 
+        public long getId() {
+            return id;
+        }
 
+        public void setId(long id) {
+            this.id = id;
+        }
+
+        public String getAgencia() {
+            return agencia;
+        }
+
+        public void setAgencia(String agencia) {
+            this.agencia = agencia;
+        }
+
+        public int getAnioCreacion() {
+            return anioCreacion;
+        }
+
+        public void setAnioCreacion(int anioCreacion) {
+            this.anioCreacion = anioCreacion;
+        }
+
+        public List<Noticia> getNoticias() {
+            return noticias;
+        }
+
+        public void setNoticias(List<Noticia> noticias) {
+            this.noticias = noticias;
+        }
+
+        @Override
+        public String toString() {
+            return "Agencia{" +
+                    "id=" + id +
+                    ", agencia='" + agencia + '\'' +
+                    ", anioCreacion=" + anioCreacion +
+                    '}';
+        }
     }
 

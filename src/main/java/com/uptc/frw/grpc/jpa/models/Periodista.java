@@ -33,5 +33,64 @@ public class Periodista {
     @ManyToMany(mappedBy = "periodistas")
     private List<Implicado> implicados;
 
+    public Periodista() {
+    }
 
+    public long getIdP() {
+        return idP;
+    }
+
+    public void setIdP(long idP) {
+        this.idP = idP;
+    }
+
+    public String getNombreP() {
+        return nombreP;
+    }
+
+    public void setNombreP(String nombreP) {
+        this.nombreP = nombreP;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public long getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(long telefono) {
+        this.telefono = telefono;
+    }
+
+    public List<Noticia> getNoticias() {
+        return noticias;
+    }
+
+    public void setNoticias(List<Noticia> noticias) {
+        this.noticias = noticias;
+    }
+
+    public List<Implicado> getImplicados() {
+        return implicados;
+    }
+
+    public void setImplicados(List<Implicado> implicados) {
+        this.implicados = implicados;
+    }
+
+    @Override
+    public String toString() {
+        return "Periodista{" +
+                "idP=" + idP +
+                ", nombreP='" + nombreP + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", telefono=" + telefono +
+                '}';
+    }
 }

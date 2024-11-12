@@ -37,5 +37,66 @@ public class Implicado {
             inverseJoinColumns = @JoinColumn(name = "ID_P")
     )
     private List <Periodista> periodistas;
+
+    public Implicado() {
+    }
+
+    public long getIdI() {
+        return idI;
+    }
+
+    public void setIdI(long idI) {
+        this.idI = idI;
+    }
+
+    public String getNombreI() {
+        return nombreI;
+    }
+
+    public void setNombreI(String nombreI) {
+        this.nombreI = nombreI;
+    }
+
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public String getCalidad() {
+        return calidad;
+    }
+
+    public void setCalidad(String calidad) {
+        this.calidad = calidad;
+    }
+
+    public List<Noticia> getNoticias() {
+        return noticias;
+    }
+
+    public void setNoticias(List<Noticia> noticias) {
+        this.noticias = noticias;
+    }
+
+    public List<Periodista> getPeriodistas() {
+        return periodistas;
+    }
+
+    public void setPeriodistas(List<Periodista> periodistas) {
+        this.periodistas = periodistas;
+    }
+
+    @Override
+    public String toString() {
+        return "Implicado{" +
+                "idI=" + idI +
+                ", nombreI='" + nombreI + '\'' +
+                ", fechaNacimiento=" + fechaNacimiento +
+                ", calidad='" + calidad + '\'' +
+                '}';
+    }
 }
 
