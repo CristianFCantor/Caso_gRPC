@@ -1,7 +1,7 @@
 
 syntax = "proto3";
 
-package com.tuempresa.servicio;
+package com.uptc.frw.grpc;
 
 // Para obtener las fechas
 import "google/protobuf/timestamp.proto";
